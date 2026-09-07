@@ -1,0 +1,48 @@
+user 
+- id_user
+- username
+- email
+- phone
+- address
+- password_hash
+- role
+
+rentals
+- id_rentals
+- id_user
+- id_unit
+- delivery_address
+- start_date
+- return_date
+- actual-return_date
+- rental_fee
+- late_fee
+- rental_status
+
+products
+- id_produk
+- id_kategori
+- product_name
+- photo_url
+- deskripsi
+- spec
+- pricing_p_day
+
+category
+- id_kategori
+- category_name
+
+iten_instances
+- id_unit
+- id_produk
+- asset_code
+- status
+
+payments
+- id_payment
+- id_rentals
+- payment_date
+- amount
+- payment_method
+- payment_proof_url
+- payment_status

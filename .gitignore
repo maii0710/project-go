@@ -1,0 +1,15 @@
+# File konfigurasi sensitif
+.env
+
+# File executable (hasil build)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+app
+main
+
+# Folder atau file biner bawaan Go
+bin/
+pkg/
