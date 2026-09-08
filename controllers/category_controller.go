@@ -10,7 +10,6 @@ import (
 	"belajar_go/models"
 )
 
-// Main Handler yang mengatur routing berdasarkan HTTP Method
 func CategoryHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -81,7 +80,6 @@ func GetAllCategories(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(categories)
 }
 
-// Fungsi GetCategoryByID yang sebelumnya hilang sudah ditambahkan di sini
 func GetCategoryByID(w http.ResponseWriter, r *http.Request, id string) {
 	var category models.Category
 
