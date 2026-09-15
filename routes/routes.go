@@ -2,14 +2,13 @@ package routes
 
 import (
 	"belajar_go/controllers"
-	"belajar_go/middlewares" 
+	"belajar_go/middlewares"
 	"net/http"
 )
 
 func SetupRoutes() http.Handler {
 	mux := http.NewServeMux()
 
-	
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
 			http.NotFound(w, r)
@@ -18,11 +17,9 @@ func SetupRoutes() http.Handler {
 		w.Write([]byte("API Belajar Go Berhasil Jalan!"))
 	})
 
-	
 	mux.HandleFunc("/register", controllers.Register)
 	mux.HandleFunc("/login", controllers.Login)
 
-	
 	mux.HandleFunc("/users", middlewares.AuthMiddleware(controllers.GetUsers))
 	mux.HandleFunc("/api/users", middlewares.AuthMiddleware(controllers.GetUsers))
 
@@ -31,8 +28,8 @@ func SetupRoutes() http.Handler {
 	mux.HandleFunc("/category", middlewares.AuthMiddleware(controllers.CreateCategory))
 	mux.HandleFunc("/rental", middlewares.AuthMiddleware(controllers.CreateRental))
 	mux.HandleFunc("/item-instances", middlewares.AuthMiddleware(controllers.CreateItemInstance))
-    mux.HandleFunc("/payments", middlewares.AuthMiddleware(controllers.PaymentHandler))
-	mux.HandleFunc("/api/payments", middlewares.AuthMiddleware(controllers.PaymentHandler))
-	
+	mux.HandleFunc("/payment", middlewares.AuthMiddleware(controllers.PaymentHandler))
+	mux.HandleFunc("/api/payment", middlewares.AuthMiddleware(controllers.PaymentHandler))
+
 	return mux
 }
